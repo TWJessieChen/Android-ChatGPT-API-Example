@@ -15,7 +15,7 @@ OpenAI API Documentation(search keyword : gpt-3.5-turbo)
 [https://platform.openai.com/docs/api-reference/chat/create]
 
 # API Key
-Add the key to network/Apis.kt on the project.</br>
+Add the key to http/Apis.kt on the project.</br>
 Put it in the value of authorization.
 
 [https://platform.openai.com/account/api-keys] 
