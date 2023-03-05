@@ -1,0 +1,11 @@
+plugins {
+    id "org.gradle.kotlin.kotlin-dsl" version "2.4.1"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.json:json:20210307"
+}

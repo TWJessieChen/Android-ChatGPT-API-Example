@@ -1,0 +1,90 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdkVersion Config.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.jc666.androidchatgptexample"
+        minSdkVersion Config.minSdkVersion
+        targetSdkVersion Config.targetSdkVersion
+        versionCode Config.versionCode
+        versionName Config.versionName
+
+        buildConfigField "String", "TAG", "\"TEST_REPORT_TAG\""
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+        }
+        release {
+            debuggable false
+            minifyEnabled false
+            useProguard true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    implementation JC666Dependencies.kotlin_stdlib
+    implementation JC666Dependencies.androidx_core_ktx
+    implementation JC666Dependencies.androidx_appcompat
+    implementation JC666Dependencies.google_material
+    implementation JC666Dependencies.androidx_constraintlayout
+    implementation JC666Dependencies.androidx_multidex
+    implementation JC666Dependencies.kotlin_coroutines
+    implementation JC666Dependencies.kotlin_coroutines_android
+    implementation JC666Dependencies.androidx_lifecycle_viewmodel
+    implementation JC666Dependencies.androidx_lifecycle_runtime
+    implementation JC666Dependencies.androidx_lifecycle_livedata
+    implementation JC666Dependencies.androidx_activity_ktx
+    implementation JC666Dependencies.androidx_fragment_ktx
+    implementation JC666Dependencies.androidx_viewpager2
+    implementation JC666Dependencies.kotlin_coroutines_android_jdk8
+    implementation JC666Dependencies.androidx_splashscreen
+
+    //database
+    implementation JC666Dependencies.google_room_runtime
+    implementation JC666Dependencies.google_room_ktx
+    kapt JC666Dependencies.google_room_compiler
+    implementation JC666Dependencies.net_zetetic_database_sqlcipher
+    implementation JC666Dependencies.androidx_sqlite
+
+    //google gson
+    implementation JC666Dependencies.google_gson
+
+    //LeakCanary
+    debugImplementation JC666Dependencies.leakcanary
+
+    //Retrofit
+    implementation JC666Dependencies.retrofit
+    implementation JC666Dependencies.retrofit_gson
+
+    // coil
+    implementation JC666Dependencies.io_coil_kt
+    implementation JC666Dependencies.io_coil_kt_gif
+    implementation JC666Dependencies.io_coil_kt_compose
+
+    //test
+    testImplementation JC666Dependencies.junit
+    androidTestImplementation JC666Dependencies.androidx_junit
+    androidTestImplementation JC666Dependencies.androidx_test_espresso_core
+}
